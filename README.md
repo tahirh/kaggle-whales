@@ -1,7 +1,7 @@
 kaggle-whales
 =============
 
-Kaggle Whale Detection Challenge: The code wins 61st place in the competition. 
+Kaggle Whale Detection Challenge: The code wins 61st place (out of 249 participants) in the competition!
 
 
 Instructions
