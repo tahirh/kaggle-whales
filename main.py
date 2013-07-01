@@ -83,7 +83,7 @@ def main():
     for train_fold, val_fold in split_sets:
         input_X, validation_X, input_y, validation_y = train_X[train_fold], train_X[val_fold], train_y[train_fold], train_y[val_fold]
 
-    params = {'n_estimators': 5, 'max_depth': 10, 'min_samples_leaf': 1, 'min_samples_split': 1}
+    params = {'n_estimators': 500, 'max_depth': 10, 'min_samples_leaf': 1, 'min_samples_split': 1}
     clf_gradboost = GradientBoostingClassifier(verbose=1,  **params)
     val_y_pred = (clf_gradboost.fit(input_X, input_y).predict_proba(validation_X))[:, 1]
     plotROC(predicted_values=val_y_pred, true_values=validation_y)
@@ -95,7 +95,7 @@ def main():
     new_pred_X = pred_X[:, priority_features]
 
     # train Gradient Boosting Classifier on priority features
-    params_final = {'n_estimators': 10, 'max_depth': 10, 'min_samples_leaf': 1, 'min_samples_split': 1}
+    params_final = {'n_estimators': 2000, 'max_depth': 10, 'min_samples_leaf': 1, 'min_samples_split': 1}
     clf_gradboost_final = GradientBoostingClassifier(verbose=1,  **params_final)
     clf_gradboost_final.fit(new_train_X, train_y)
 
